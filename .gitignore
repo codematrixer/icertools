@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.DS_Store
 build/
 develop-eggs/
 dist/
@@ -25,6 +26,10 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.ipa
+*dev.py
+_tmp
+*.p8
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

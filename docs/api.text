@@ -1,0 +1,295 @@
+http request <method=GET, url=https://api.appstoreconnect.apple.com/v1/bundleIds, data=None>
+{
+    "data": [
+        {
+            "type": "bundleIds",
+            "id": "97JNQ33YXK",
+            "attributes": {
+                "name": "XC Wildcard",
+                "identifier": "*",
+                "platform": "UNIVERSAT",
+                "seedId": "MH2PUTT4SO"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "meta": {
+                        "paging": {
+                            "total": 0,
+                            "limit": 2147483647
+                        }
+                    },
+                    "links": {
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/97JNQ33YXK/relationships/bundleIdCapabilities",
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/97JNQ33YXK/bundleIdCapabilities"
+                    }
+                },
+                "profiles": {
+                    "meta": {
+                        "paging": {
+                            "total": 0,
+                            "limit": 2147483647
+                        }
+                    },
+                    "links": {
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/97JNQ33YXK/relationships/profiles",
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/97JNQ33YXK/profiles"
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/97JNQ33YXK"
+            }
+        },
+        {
+            "type": "bundleIds",
+            "id": "AXLFKB96G9",
+            "attributes": {
+                "name": "test-desktop",
+                "identifier": "com.test.perf",
+                "platform": "UNIVERSAL",
+                "seedId": "MH2PUTT4S7"
+            },
+            "relationships": {
+                "bundleIdCapabilities": {
+                    "meta": {
+                        "paging": {
+                            "total": 0,
+                            "limit": 2147483647
+                        }
+                    },
+                    "links": {
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AXLFKB96G9/relationships/bundleIdCapabilities",
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/AXLFKB96G9/bundleIdCapabilities"
+                    }
+                },
+                "profiles": {
+                    "meta": {
+                        "paging": {
+                            "total": 0,
+                            "limit": 2147483647
+                        }
+                    },
+                    "links": {
+                        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AXLFKB96G9/relationships/profiles",
+                        "related": "https://api.appstoreconnect.apple.com/v1/bundleIds/AXLFKB96G9/profiles"
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/bundleIds/AXLFKB96G9"
+            }
+        }
+    ],
+    "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/bundleIds"
+    },
+    "meta": {
+        "paging": {
+            "total": 3,
+            "limit": 20
+        }
+    }
+}
+
+
+http request <method=GET, url=https://api.appstoreconnect.apple.com/v1/devices, data=None>
+{
+    "data": [
+        {
+            "type": "devices",
+            "id": "46YMD2K9VP",
+            "attributes": {
+                "addedDate": "2023-05-17T03:35:45.000+00:00",
+                "name": "ban-1",
+                "deviceClass": "IPHONE",
+                "model": "iPhone 6s Plus",
+                "udid": "bfcc8c312f6111099877c45129f51a65c4bf9fef",
+                "platform": "IOS",
+                "status": "ENABLED"
+            },
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/devices/46YMD2K9VP"
+            }
+        },
+        {
+            "type": "devices",
+            "id": "495KTSS9N3",
+            "attributes": {
+                "addedDate": "2023-05-17T03:34:28.000+00:00",
+                "name": "ban-2",
+                "deviceClass": "IPHONE",
+                "model": "iPhone 11",
+                "udid": "00008030-001E58D23CD2802E",
+                "platform": "IOS",
+                "status": "ENABLED"
+            },
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/devices/495KTSS9N3"
+            }
+        },
+        {
+            "type": "devices",
+            "id": "4FKYV8U654",
+            "attributes": {
+                "addedDate": "2023-05-17T03:49:34.000+00:00",
+                "name": "ban-3",
+                "deviceClass": "IPHONE",
+                "model": "iPhone 12 mini",
+                "udid": "00008101-000D158E0AE8001E",
+                "platform": "IOS",
+                "status": "ENABLED"
+            },
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/devices/4FKYV8U654"
+            }
+        }
+    ],
+    "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/devices",
+        "next": "https://api.appstoreconnect.apple.com/v1/devices?cursor=eyJvZmZzZXQiOiIyMCJ9&limit=20"
+    },
+    "meta": {
+        "paging": {
+            "total": 100,
+            "limit": 20
+        }
+    }
+}
+
+
+http request <method=GET, url=https://api.appstoreconnect.apple.com/v1/certificates, data=None>
+{
+    "data": [
+        {
+            "type": "certificates",
+            "id": "HDR65Q849Q",
+            "attributes": {
+                "serialNumber": "MIIFojCCBIqgAwXXX",
+                "certificateContent": "MIIFojCCBIqgAwXXX",
+                "displayName": "Zhao",
+                "name": "Developer ID Application: MIIFojCCBIqgAwXXX",
+                "csrContent": null,
+                "platform": "MAC_OS",
+                "expirationDate": "2027-02-01T22:12:15.000+00:00",
+                "certificateType": "DEVELOPER_ID_APPLICATION"
+            },
+            "relationships": {
+                "passTypeId": {
+                    "links": {
+                        "self": "https://api.appstoreconnect.apple.com/v1/certificates/HDR65Q849Q/relationships/passTypeId",
+                        "related": "https://api.appstoreconnect.apple.com/v1/certificates/HDR65Q849Q/passTypeId"
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/certificates/HDR65Q849Q"
+            }
+        }
+    ],
+    "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/certificates"
+    },
+    "meta": {
+        "paging": {
+            "total": 2,
+            "limit": 20
+        }
+    }
+}
+
+http request <method=POST, url=https://api.appstoreconnect.apple.com/v1/certificates, data={'data': {'attributes': {'certificateType': 'IOS_DEVELOPMENT', 'csrContent': 'MIIFojCCBIqgAwXXX'}, 'type': 'certificates'}}>
+{
+    "data": {
+        "type": "certificates",
+        "id": "6D632G9UGZ",
+        "attributes": {
+            "serialNumber": "612539D199DF296A0F52A36E49925D1C",
+            "certificateContent": "MIIFojCCBIqgAwXXX",
+            "displayName": "Created via API",
+            "name": "iOS Development: Created via API",
+            "csrContent": null,
+            "platform": "IOS",
+            "expirationDate": "2025-05-16T06:35:52.000+00:00",
+            "certificateType": "IOS_DEVELOPMENT"
+        },
+        "relationships": {
+            "passTypeId": {
+                "links": {
+                    "self": "https://api.appstoreconnect.apple.com/v1/certificates/6D632G9UGZ/relationships/passTypeId",
+                    "related": "https://api.appstoreconnect.apple.com/v1/certificates/6D632G9UGZ/passTypeId"
+                }
+            }
+        },
+        "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/certificates/6D632G9UGZ"
+        }
+    },
+    "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/certificates"
+    }
+}
+
+
+http request <method=GET, url=https://api.appstoreconnect.apple.com/v1/profiles, data=None>
+{
+    "data": [
+        {
+            "type": "profiles",
+            "id": "W532Q3BJ4L",
+            "attributes": {
+                "profileState": "INVALID",
+                "createdDate": "2023-09-04T03:31:21.000+00:00",
+                "profileType": "IOS_APP_DEVELOPMENT",
+                "name": "kmonkeyzmlprofile",
+                "profileContent": "MIIFojCCBIqgAwXXXxxxxxxx",
+                "uuid": "37eaa64c-c512-4bf7-a051-xxxxx",
+                "platform": "IOS",
+                "expirationDate": "2024-09-03T03:31:21.000+00:00"
+            },
+            "relationships": {
+                "bundleId": {
+                    "links": {
+                        "self": "https://api.appstoreconnect.apple.com/v1/profiles/W532Q3BJ4L/relationships/bundleId",
+                        "related": "https://api.appstoreconnect.apple.com/v1/profiles/W532Q3BJ4L/bundleId"
+                    }
+                },
+                "certificates": {
+                    "meta": {
+                        "paging": {
+                            "total": 0,
+                            "limit": 2147483647
+                        }
+                    },
+                    "links": {
+                        "self": "https://api.appstoreconnect.apple.com/v1/profiles/W532Q3BJ4L/relationships/certificates",
+                        "related": "https://api.appstoreconnect.apple.com/v1/profiles/W532Q3BJ4L/certificates"
+                    }
+                },
+                "devices": {
+                    "meta": {
+                        "paging": {
+                            "total": 0,
+                            "limit": 2147483647
+                        }
+                    },
+                    "links": {
+                        "self": "https://api.appstoreconnect.apple.com/v1/profiles/W532Q3BJ4L/relationships/devices",
+                        "related": "https://api.appstoreconnect.apple.com/v1/profiles/W532Q3BJ4L/devices"
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.appstoreconnect.apple.com/v1/profiles/W532Q3BJ4L"
+            }
+        }
+    ],
+    "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/profiles"
+    },
+    "meta": {
+        "paging": {
+            "total": 1,
+            "limit": 20
+        }
+    }
+}
