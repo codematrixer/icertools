@@ -11,6 +11,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 
 
+# 废弃（需依赖openssl）
 def extract_uuid_from_certificate(certificate_content: str) -> str:
     """
     Get the fingerprint from the given base64-encoded X.509 certificate.

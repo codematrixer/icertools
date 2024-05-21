@@ -101,7 +101,7 @@ class Resign:
         cer_infos = []
         for certificate in certificates:
             certificateContent = certificate['attributes']['certificateContent']
-            uuid = extract_uuid_from_certificate(certificateContent)
+            uuid = extract_uuid_from_certificate_v2(certificateContent)
             cer_uuids.append(uuid)
             certificate_info = CertificateInfo(
                 _id=certificate['id'],
