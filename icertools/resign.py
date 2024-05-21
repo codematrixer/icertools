@@ -59,15 +59,16 @@ class Resign:
 
         return WildCardProfileResult(None, None)
 
-    def _find_wildcard_bundle(self) -> BundleInfo:
+    def _get_or_create_wildcard_bundle(self) -> BundleInfo:
         """
         Search the current account for a bundle with an identifier of "*".
+        If not found, create one.
 
         Returns:
-            BundleInfo: If a bundle is found.
+            BundleInfo: The bundle information if a bundle is found or created.
 
         Raises:
-            RuntimeError: If no bundle is found.
+            RuntimeError: If no bundle is found and creation fails.
         """
         bundles = self.api.list_bundle_ids()
 
@@ -77,7 +78,12 @@ class Resign:
                 print(f"Matched identifier == '*' bundle: <{bundle['id']}>")
                 return BundleInfo(_id=bundle['id'], _type=bundle['type'])
 
-        raise RuntimeError('No bundle matched identifier == "*"!')
+        print('No bundle_id matched identifier == "*"!, so Create one')
+        try:
+            self.api.create_bundle_id(name="API Wildcard", bundle_id="*")
+        except Exception as e:
+            print('Failed to create bundle_id: identifier == "*"')
+            raise RuntimeError('No bundle matched identifier == "*" and failed to create one!')
 
     def _get_all_certificates_info(self) -> Tuple[List[str], List[CertificateInfo]]:
         """
@@ -277,7 +283,7 @@ class Resign:
             print(f"Delete profile: {profile_id}")
             self.api.delete_profile(profile_id)
         else:
-            wildcard_bundle_info: BundleInfo = self._find_wildcard_bundle()
+            wildcard_bundle_info: BundleInfo = self._get_or_create_wildcard_bundle()
 
         cer_uuids, cer_infos = self._get_all_certificates_info()
         local_cer_uuid = find_matching_local_certificate(cer_uuids)
