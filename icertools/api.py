@@ -31,10 +31,11 @@ class Api:
 
     # refer: https://developer.apple.com/documentation/appstoreconnectapi
 
-    def __init__(self, key_file, key_id, issuer_id):
+    def __init__(self, key_file, key_id, issuer_id, user_id):
         self.key_file = key_file
         self.key_id = key_id
         self.issuer_id = issuer_id
+        self.user_id = user_id
 
     @property
     def _api_key(self):
@@ -64,18 +65,6 @@ class Api:
         }
         return headers
 
-    def list_bundle_ids(self) -> list:
-        url = f'{BASE_URL}/bundleIds'
-        response = dohttp("GET", url, headers=self._headers)
-        data = response.json().get("data")
-        return data
-
-    def gete_bundleid_related_profile(self, profile_id):
-        url = f"https://api.appstoreconnect.apple.com/v1/profiles/{profile_id}/bundleId"
-        response = dohttp("GET", url, headers=self._headers)
-        data = response.json().get("data")
-        return data
-
     def list_devices(self) -> list:
         url = f'{BASE_URL}/devices?limit=200'
         response = dohttp("GET", url, headers=self._headers)
@@ -92,6 +81,35 @@ class Api:
                     'platform': platform
                 },
                 'type': 'devices'
+            }
+        }
+        response = dohttp("POST", url, data=data, headers=self._headers)
+        data = response.json()
+        return data
+
+    def list_bundle_ids(self) -> list:
+        url = f'{BASE_URL}/bundleIds'
+        response = dohttp("GET", url, headers=self._headers)
+        data = response.json().get("data")
+        return data
+
+    def gete_bundleid_related_profile(self, profile_id):
+        url = f"https://api.appstoreconnect.apple.com/v1/profiles/{profile_id}/bundleId"
+        response = dohttp("GET", url, headers=self._headers)
+        data = response.json().get("data")
+        return data
+
+    def create_bundle_id(self, name: str, bundle_id: str, platform="IOS"):
+        url = f'{BASE_URL}/bundleIds'
+        data = {
+            'data': {
+                'attributes': {
+                    "name": name,
+                    'identifier': bundle_id,
+                    "seedId": self.user_id,
+                    "platform": platform,
+                },
+                'type': 'bundleIds'
             }
         }
         response = dohttp("POST", url, data=data, headers=self._headers)
