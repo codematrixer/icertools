@@ -1,8 +1,9 @@
 # icertools
 
-纯Python3实现的**iOS证书管理**和**IPA重签名工具**，无需登录[苹果开发者网站](https://developer.apple.com/account/resources/devices/list) 进行操作, 参考XCode自动管理证书。
+纯Python3实现的**iOS证书管理**和**IPA重签名工具**，无需登录[苹果开发者网站](https://developer.apple.com/account/resources/devices/list) 进行任何操作，原理参考自[XCode自动管理证书](https://www.jianshu.com/p/035ae1f1e563)
 
-**举例场景**
+**使用场景**
+
 没有这个工具前, 使用个人开发者账号对IPA重签时，需要先登录苹果开发者网站，添加新设备，然后生成profile文件, 然后导出profile文件, 再用一些重签名工具进行重签, 非常麻烦。 现在有了这个工具，只需调用一个API即可完成重签，非常之高效。
 
 在iOS自动化工具WDA的打包场景非常实用。
