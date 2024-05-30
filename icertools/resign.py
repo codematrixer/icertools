@@ -198,9 +198,9 @@ class Resign:
         frameworks_dir: str = os.path.join(app_dir, "Frameworks")
         plugIns_dir: str = os.path.join(app_dir, "PlugIns")
 
+        _apps: List[str] = find_executable_files(app_dir, maxdepth=1)
         _frameworks: List[str] = find_executable_files(frameworks_dir) if os.path.exists(frameworks_dir) else []
         _plugIns: List[str] = find_executable_files(plugIns_dir) if os.path.exists(plugIns_dir) else []
-        _apps: List[str] = find_executable_files(app_dir, maxdepth=1)
 
         for item in _frameworks + _plugIns + _apps:
             subprocess.run([
@@ -240,10 +240,6 @@ class Resign:
 
         app_dir = __get_app_directory()   # eg. ~/develop/icertools/_tmp/_tmp/Payload/ios-wda.app
 
-        # Delete current signature file
-        remove_subdirectory(unzipped_ipa_dir, "_CodeSignature")
-        remove_files_in_directory(unzipped_ipa_dir, [".DS_Store", "__MACOSX"])
-
         app_profile = f'{app_dir}/embedded.mobileprovision'
         if os.path.exists(app_profile):
             os.remove(app_profile)
@@ -271,8 +267,11 @@ class Resign:
         10. Prints the path to the output IPA file once the process is done.
         """
 
-        extract_to = os.path.join(self._tmp_path, '_tmp')
-        unzipped_ipa_dir = unzip_file(self.input_ipa_path, extract_to)  # eg. ~/develop/icertools/_tmp/_tmp
+        extract_to = os.path.join(self._tmp_path, '__tmp')
+        if os.path.exists(extract_to):
+            shutil.rmtree(extract_to)
+
+        unzipped_ipa_dir = unzip_file(self.input_ipa_path, extract_to)  # eg. ~/develop/icertools/_tmp/__tmp
 
         print("Find wildcard profile and bundle")
         result: WildCardProfileResult = self._find_wildcard_profile_and_bundle()
