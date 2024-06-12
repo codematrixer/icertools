@@ -1,4 +1,4 @@
-PyJWT==2.8.0
-requests==2.29.0
+requests
 cryptography
 cached_property
+PyJWT==2.8.0
