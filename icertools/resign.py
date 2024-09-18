@@ -205,7 +205,6 @@ class Resign:
         for item in _frameworks + _plugIns + _apps:
             subprocess.run([
                 "codesign", "-f", "-s", cer_uuid,
-                "--no-strict",
                 f"--entitlements={entitlements_plist_path}",
                 item
             ], check=True)
@@ -285,7 +284,7 @@ class Resign:
             wildcard_bundle_info: BundleInfo = self._get_or_create_wildcard_bundle()
 
         cer_uuids, cer_infos = self._get_all_certificates_info()
-        local_cer_uuid = find_matching_local_certificate(cer_uuids)
+        local_cer_uuid = find_matching_local_certificate(cer_uuids)   # eg. B87C5FAC4EX30EE46...BE79BE2DE916E8503F4X
 
         devices_info: List[DeviceInfo] = self._get_all_device_infos()
         print("Create wildcard profile...")
