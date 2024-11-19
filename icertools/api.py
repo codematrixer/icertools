@@ -22,6 +22,9 @@ def dohttp(method: str, url, data: Dict[str, Any] = None, headers={}, timeout=15
         r = requests.request(method, url, data=_data, headers=headers, timeout=timeout)
         r.raise_for_status()
         response = HTTPResponse(r.content)
+
+        time.sleep(1)   # apple api limit 1000/hour
+
         return response
     except requests.RequestException as e:
         raise HTTPError(f"HTTP request failed: {e}")

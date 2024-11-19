@@ -41,6 +41,8 @@ class Resign:
         """
         print("list profiles...")
         profiles = self.api.list_profiles()
+        print(f"{len(profiles)} profiles found")
+    
         profile_id = None
         wildcard_bundle_info: BundleInfo = None
 
@@ -80,10 +82,11 @@ class Resign:
 
         print('No bundle_id matched identifier == "*"!, so Create one')
         try:
-            self.api.create_bundle_id(name="API Wildcard", bundle_id="*")
-        except Exception as e:
+            data = self.api.create_bundle_id(name="API Wildcard", bundle_id="*")
+            return BundleInfo(_id=data['data']['attributes']['identifier'], _type=data['data']['type'])
+        except Exception:
             print('Failed to create bundle_id: identifier == "*"')
-            raise RuntimeError('No bundle matched identifier == "*" and failed to create one!')
+            raise RuntimeError('Failed to create bundle_id: identifier == "*"')
 
     def _get_all_certificates_info(self) -> Tuple[List[str], List[CertificateInfo]]:
         """
